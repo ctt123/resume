@@ -5,7 +5,6 @@
         <div class="grid-content bg-purple-dark left">
           <div class="avatar-box">
             <div class="avatar">
-
             </div>
           </div>
         </div>
