@@ -9,16 +9,18 @@ export const Method = {
   PATCH: 'patch'
 }
 
+const API_URL = '/api'
+
 const Api = {
   post: (url, data) => api(url, data, Method.POST),
-  get: (url, params) => api(url, params, Method.GET),
+  get: (url, params, headers) => api(url, params, Method.GET, headers),
   delete: (url, data) => api(url, data, Method.DELETE),
   patch: (url, data) => api(url, data, Method.PATCH)
 }
 
-const api = (url, data, method = 'get') => {
+const api = (url, data, method = 'get', headers) => {
   return new Promise((resolve, reject) => {
-    axios({method, url, data, params: method === 'get' ? data : {}}).then((res) => {
+    axios({method, url: API_URL + url, data, params: method === 'get' ? data : {}, headers}).then((res) => {
       if (res.status <= 200) {
         resolve(res.data)
       } else if (res.status > 200 && res.status < 300) {
