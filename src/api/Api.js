@@ -9,8 +9,6 @@ export const Method = {
   PATCH: 'patch'
 }
 
-const API_URL = '/api'
-
 const Api = {
   post: (url, data) => api(url, data, Method.POST),
   get: (url, params, headers) => api(url, params, Method.GET, headers),
@@ -20,7 +18,7 @@ const Api = {
 
 const api = (url, data, method = 'get', headers) => {
   return new Promise((resolve, reject) => {
-    axios({method, url: API_URL + url, data, params: method === 'get' ? data : {}, headers}).then((res) => {
+    axios({method, url: url, data, params: method === 'get' ? data : {}, headers}).then((res) => {
       if (res.status <= 200) {
         resolve(res.data)
       } else if (res.status > 200 && res.status < 300) {

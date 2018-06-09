@@ -11,7 +11,7 @@
 </template>
 <script>
 import Label from './Label'
-import * as Urler from '../../core/Urler'
+import BaseApi from '../../api/base/BaseApi'
 
 export default {
   name: 'Login',
@@ -25,14 +25,9 @@ export default {
     login () {
     },
     loginGithub () {
-      const authorizationUrl = 'https://github.com/login/oauth/authorize'
-      const github = {
-        'client_id': '1c23891103858487501e',
-        'client_secret': 'f33376b3bdf95b4c4ef2645b0358b183af8afb42',
-        'state': Math.random().toString()
-      }
-      location.href = encodeURI(Urler.build(authorizationUrl, github))
-
+      BaseApi.githubLoginUrl().then(data => {
+        location.href = data.url
+      })
     }
   },
   mounted () {

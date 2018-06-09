@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Chat from '@/components/grocery/msg/Chat'
 import Login from '@/components/base/Login'
+import LoginCallback from '@/components/base/LoginCallback'
 import Join from '@/components/base/Join'
 
 Vue.use(Router)
@@ -28,6 +29,11 @@ export default new Router({
       path: '/join',
       name: 'Join',
       component: Join
+    },
+    {
+      path: '/login/callback',
+      name: 'LoginCallback',
+      component: LoginCallback
     }
   ]
 })
