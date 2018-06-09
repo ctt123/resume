@@ -14,6 +14,9 @@ const LoginUserRepository = {
   },
   isSaved () {
     return localStorage.getItem(LOGIN_USER) !== null
+  },
+  isNotSaved () {
+    return !this.isSaved()
   }
 }
 export default LoginUserRepository

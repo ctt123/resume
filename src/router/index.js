@@ -5,6 +5,7 @@ import Chat from '@/components/grocery/msg/Chat'
 import Login from '@/components/base/Login'
 import LoginCallback from '@/components/base/LoginCallback'
 import Join from '@/components/base/Join'
+import LoginUserRepository from '../core/model/LoginUserRepository'
 
 Vue.use(Router)
 
@@ -23,7 +24,14 @@ export default new Router({
     {
       path: '/login',
       name: 'Login',
-      component: Login
+      component: Login,
+      beforeEnter: (to, from, next) => {
+        if (LoginUserRepository.isNotSaved()) {
+          next()
+        } else {
+          next(from.path)
+        }
+      }
     },
     {
       path: '/join',
