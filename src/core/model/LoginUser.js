@@ -1,5 +1,5 @@
 export default class LoginUser {
-  constructor (id, nickname, avatar, accessToken,loginTime) {
+  constructor (id, nickname, avatar, accessToken, loginTime) {
     this.nickname = nickname
     this.avatar = avatar
     this.accessToken = accessToken

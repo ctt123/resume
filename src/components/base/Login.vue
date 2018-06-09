@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <span class="login-title"><Label code="l_login"/><Label code="l_project_name"/></span>
+    <span class="login-title"><Label code="l_login"/><Label code="l_us"/></span>
     <Label code="l_username"/>/<Label code="l_email"/>/<Label code="l_phone_num"/>/
     <el-input v-model="user.account"><i slot="prefix" class="el-input__icon el-icon-search"></i></el-input>
     <Label code="l_password"/>
@@ -26,7 +26,7 @@ export default {
     },
     loginGithub () {
       BaseApi.githubLoginUrl().then(data => {
-        location.href = data.url
+        window.open(data.url, 'Login', 'height=450, width=700')
       })
     }
   },

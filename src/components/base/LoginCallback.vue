@@ -17,6 +17,8 @@ export default {
     let token = this.$route.query.token
     BaseApi.githubUser(token).then(data => {
       LoginUserRepository.save(new LoginUser(data.id, data.name, data.avatar_url, data.access_token, new Date()))
+      window.opener.location.reload()
+      window.close()
     })
   }
 }

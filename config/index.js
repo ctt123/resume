@@ -12,10 +12,9 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        // 测试环境
-        target: 'http://192.168.27.254:11111',  // 接口域名
+        target: 'http://192.168.27.254:11111',
         pathRewrite: {
-          '^/api': ''   //需要rewrite重写的,
+          '^/api': ''
         }
       }
     },

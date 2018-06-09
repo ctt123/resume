@@ -2,22 +2,22 @@
   <div id="app">
     <el-header class="header">
       <nav class="menu-bar">
-        <router-link to="/" class="logo">/2</router-link>
-        <router-link to="/">首页</router-link>
-        <router-link to="/note">日记</router-link>
-        <router-link to="/msg/chat">聊天</router-link>
-        <router-link to="/store">小店</router-link>
-        <router-link to="/about">关于我们</router-link>
+        <router-link to="/" class="logo"><Label code="l_us"/></router-link>
+        <router-link to="/"><Label code="l_index"/></router-link>
+        <router-link to="/note"><Label code="l_diary"/></router-link>
+        <router-link to="/msg/chat"><Label code="l_chat"/></router-link>
+        <router-link to="/store"><Label code="l_store"/></router-link>
+        <router-link to="/about"><Label code="l_about_us"/></router-link>
         <a href="javascript: void(0)"><i class="el-icon-search"></i></a>
         <span v-if="isLogin">
           <img class="avatar" height="40" width="40" :src="loginUser.avatar"/>
           <span>{{loginUser.nickname}}</span>
+          <a href="javascript:void(0)" @click="logout"><Label code="l_logout"/></a>
         </span>
         <span v-else>
-          <router-link to="/login">登录</router-link>
-          <router-link to="/join">注册</router-link>
+          <router-link to="/login"><Label code="l_login"/></router-link>
+          <router-link to="/join"><Label code="l_join"/></router-link>
         </span>
-
       </nav>
     </el-header>
     <router-view/>
@@ -26,13 +26,21 @@
 
 <script>
 import LoginUserRepository from './core/model/LoginUserRepository'
+import Label from './components/base/Label'
 
 export default {
   name: 'App',
+  components: {Label},
   data () {
     return {
       isLogin: LoginUserRepository.isSaved(),
       loginUser: LoginUserRepository.get()
+    }
+  },
+  methods: {
+    logout () {
+      LoginUserRepository.remove()
+      this.isLogin = false
     }
   }
 }
