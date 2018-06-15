@@ -23,6 +23,9 @@ export default {
   },
   methods: {
     login () {
+      BaseApi.login(user).then(data => {
+
+      })
     },
     loginGithub () {
       BaseApi.githubLoginUrl().then(data => {
