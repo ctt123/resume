@@ -11,7 +11,6 @@
 </template>
 <script>
 import Label from './Label'
-import BaseApi from '../../api/base/BaseApi'
 
 export default {
   name: 'Login',
@@ -22,20 +21,9 @@ export default {
     }
   },
   methods: {
-    login () {
-      BaseApi.login(user).then(data => {
-
-      })
-    },
-    loginGithub () {
-      BaseApi.githubLoginUrl().then(data => {
-        window.open(data.url, 'Login', 'height=450, width=700')
-      })
-    }
   },
   mounted () {
   }
-
 }
 </script>
 
