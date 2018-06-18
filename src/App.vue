@@ -77,7 +77,7 @@ export default {
       this.isLogin = false
     }
   },
-  mounted(){
+  mounted () {
     this.BaseConfig.LOGIN_URL
   }
 }
