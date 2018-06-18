@@ -12,7 +12,8 @@ const labeler = new Map(
     ['l_username', '用户名'], // user ------- start
     ['l_password', '密码'],
     ['l_email', '邮箱'],
-    ['l_phone_num', '手机号']
+    ['l_phone_num', '手机号'],
+    ['p_login_name', '请输入用户名/邮箱/手机号']
   ]
 )
 

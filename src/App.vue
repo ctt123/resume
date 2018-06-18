@@ -21,6 +21,8 @@
       </nav>
     </el-header>
     <router-view/>
+    <!--<router-view/>-->
+    <Counter></Counter>
   </div>
 </template>
 
@@ -28,9 +30,41 @@
 import LoginUserRepository from './core/model/LoginUserRepository'
 import Label from './components/base/Label'
 
+import Vuex from 'vuex'
+import Vue from 'vue'
+
+Vue.use(Vuex)
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+store.commit('increment')
+console.log(store.state.count)
+
+const Counter = {
+  template: `<div>{{ count }}</div>`,
+  computed: {
+    count () {
+      return this.$store.state.count
+    }
+  }
+}
+
 export default {
   name: 'App',
-  components: {Label},
+  store,
+  components: {Counter, Label},
+  template: `
+  <div class="app">
+    <counter></counter>
+  </div>
+  `,
   data () {
     return {
       isLogin: LoginUserRepository.isSaved(),
