@@ -1,10 +1,12 @@
 <template>
   <div class="login">
-    <span class="login-title"><Label code="l_login"/><Label code="l_us"/></span>
-    <Label code="l_username"/>/<Label code="l_email"/>/<Label code="l_phone_num"/>/
-    <el-input v-model="user.account"><i slot="prefix" class="el-input__icon el-icon-search"></i></el-input>
-    <Label code="l_password"/>
-    <el-input v-model="user.password"><i slot="prefix" class="el-input__icon el-icon-setting"></i></el-input>
+    <!--<span class="login-title"><Label code="l_login"/><Label code="l_us"/></span>-->
+    <!--<Label code="l_username"/>/<Label code="l_email"/>/<Label code="l_phone_num"/>/-->
+    <el-input v-model="user.account" :placeholder="Labeler('p_login_name')">
+      <i slot="prefix" class="el-input__icon el-icon-search"></i></el-input>
+    <!--<Label code="l_password"/>-->
+    <el-input v-model="user.password" placeholder="请输入密码">
+      <i slot="prefix" class="el-input__icon el-icon-setting"></i></el-input>
     <el-button type="success" @click="login"><Label code="l_login"/></el-button>
     <a href="javascript:void(0)" @click="loginGithub">github</a>
   </div>

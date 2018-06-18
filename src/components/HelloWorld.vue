@@ -2,8 +2,9 @@
   <div class="hello">
     <el-carousel :interval="5000" height="620px" arrow="always">
       <el-carousel-item v-for="item in 4" :key="item">
-        <img src="@/assets/timg.jpg" height="620"/>
-        <h1>WE ARE DIVIDE2</h1>
+        <div class="pic-box">
+          <h1 class="pic-name">WE ARE DIVIDE</h1>
+        </div>
       </el-carousel-item>
     </el-carousel>
     <el-row :gutter="10">
@@ -105,5 +106,13 @@ export default {
     left: 50%;
     margin-left: 50px;
     margin-top: 50px;
+  }
+
+  .pic-box {
+    display:flex;
+    background:url("../assets/timg.jpg");
+    height:100%;
+    justify-content:center;
+    align-items:center;
   }
 </style>

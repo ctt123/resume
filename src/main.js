@@ -7,9 +7,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Labeler from './core/Labeler'
+import './assets/css/theme.scss'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+
+Vue.prototype.Labeler = Labeler
 
 Vue.use(VueAxios, axios)
 /* eslint-disable no-new */
