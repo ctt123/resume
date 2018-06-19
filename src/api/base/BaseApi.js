@@ -2,8 +2,8 @@ import Api from '../Api'
 
 export default {
   join: (user) => Api.post('/api/v1/join', user),
-  login (user) {
-    const headers = {Authorization: 'Basic ' + btoa("elagleye" + ':' + "12345678")}
+  login(user) {
+    const headers = {Authorization: 'Basic ' + btoa('elagleye' + ':' + '12345678')}
     console.log(user)
     const info = {
       grant_type: 'password',
@@ -13,10 +13,10 @@ export default {
     }
     return Api.get('/api/user', info, headers)
   },
-  githubUser (token) {
+  githubUser(token) {
     return Api.get(`https://api.github.com/user?access_token=${token}`)
   },
-  githubLoginUrl () {
+  githubLoginUrl() {
     return Api.get('/api/login/oauth/url/github')
   }
 }
