@@ -3,7 +3,7 @@ import Api from '../Api'
 export default {
   join: (user) => Api.post('/api/v1/join', user),
   login (user) {
-    const headers = {Authorization: 'Basic ' + btoa("elagleye" + ':' + "12345678")}
+    const headers = {Authorization: 'Basic ' + btoa('elagleye' + ':' + '12345678')}
     console.log(user)
     const info = {
       grant_type: 'password',

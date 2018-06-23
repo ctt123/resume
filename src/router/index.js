@@ -5,6 +5,7 @@ import Chat from '@/components/grocery/msg/Chat'
 import Login from '@/components/base/Login'
 import LoginCallback from '@/components/base/LoginCallback'
 import Join from '@/components/base/Join'
+import Exam from '@/components/base/Exam'
 import LoginUserRepository from '../core/model/LoginUserRepository'
 
 Vue.use(Router)
@@ -32,6 +33,11 @@ export default new Router({
           next(from.path)
         }
       }
+    },
+    {
+      path: '/exam',
+      name: 'Exam',
+      component: Exam
     },
     {
       path: '/join',
