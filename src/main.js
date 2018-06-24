@@ -9,6 +9,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import BaseConfig from './core/config/BaseConfig'
 
+import Labeler from './core/Labeler'
+import i18n from './i18n'
+
+Vue.prototype.Labeler = Labeler
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
@@ -18,6 +22,7 @@ Vue.use(BaseConfig)
 new Vue({
   el: '#app',
   router,
+  i18n,
   components: {App},
   template: '<App/>'
 })
