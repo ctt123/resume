@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import BaseConfig from './core/config/BaseConfig'
+import Labeler from './core/Labeler'
+Vue.prototype.Labeler = Labeler
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

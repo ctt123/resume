@@ -109,10 +109,10 @@ export default {
   }
 
   .pic-box {
-    display:flex;
-    background:url("../assets/timg.jpg");
-    height:100%;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    background: url("../assets/timg.jpg");
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 </style>

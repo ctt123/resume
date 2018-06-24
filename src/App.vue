@@ -15,7 +15,7 @@
           <a href="javascript:void(0)" @click="logout"><Label code="l_logout"/></a>
         </span>
         <span v-else>
-          <a :href="BaseConfig.LOGIN_URL"><Label code="l_login"/></a>
+          <router-link to="/login"><Label code="l_login"/></router-link>
           <router-link to="/join"><Label code="l_join"/></router-link>
         </span>
       </nav>
