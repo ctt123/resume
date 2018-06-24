@@ -5,7 +5,7 @@ export default {
   join: (user) => Api.post('/api/v1/join', user),
   login (user) {
     const headers = {
-      Authorization: 'Basic ' + btoa('eagleeye' + ':' + '12345678'),
+      Authorization: 'Basic ' + btoa('eagleeye' + ':' + '12345678')
     }
     const info = {
       grant_type: 'password',

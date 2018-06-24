@@ -1,3 +1,10 @@
+/**
+ * l 为label
+ * p 为 ？？
+ * m 为 message
+ * e 为 error
+ * @type {Map<any, any>}
+ */
 const labeler = new Map(
   [
     ['l_us', '/2'], // index ------ start
@@ -13,7 +20,8 @@ const labeler = new Map(
     ['l_password', '密码'],
     ['l_email', '邮箱'],
     ['l_phone_num', '手机号'],
-    ['p_login_name', '请输入用户名/邮箱/手机号']
+    ['p_login_name', '请输入用户名/邮箱/手机号'],
+    ['e_invalid_grant', '用户名或密码错误']
   ]
 )
 

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 import Labeler from '../core/Labeler'
+import i18n from '../i18n'
 
 export const Method = {
   POST: 'post',
@@ -17,27 +18,26 @@ const Api = {
 }
 
 const api = (url, data, method = 'get', headers) => {
-  // console.log(headers)
-
   return new Promise((resolve, reject) => {
-    axios.request({method, url: url, data, params: method === 'get' ? data : {}, headers: headers}).then((res) => {
+    axios({method, url: url, data, params: method === 'get' ? data : {}, headers: headers}).then((res) => {
       if (res.status <= 200) {
         resolve(res.data)
       } else if (res.status > 200 && res.status < 300) {
         resolve(res.data)
         Message.success(Labeler(res.data.code))
-      } else if (res.status > 300 && res.status < 400) {
-        reject(res.data)
-        Message.error(Labeler(res.data.code))
-      } else if (res.status >= 400 && res.status < 500) {
-        reject(res.data)
-        Message.error(Labeler(res.data.code))
       } else {
-        reject(res.data)
-        Message.error(Labeler(res.data.code))
+        resolve(res.data)
       }
     }).catch((error) => {
-      reject(error)
+      const res = error.response
+      if (res.status >= 400 && res.status < 500) {
+        resolve(res.data)
+        Message.error(i18n.t('error.' + res.data.error))
+      } else {
+        resolve(res.data)
+        i18n.$t('')
+        Message.error(Labeler('e_' + res.data.error))
+      }
     })
   })
 }

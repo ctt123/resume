@@ -8,7 +8,7 @@
     <el-input v-model="user.password" placeholder="请输入密码">
       <i slot="prefix" class="el-input__icon el-icon-setting"></i></el-input>
     <el-button type="success" @click="login"><Label code="l_login"/></el-button>
-    <a href="javascript:void(0)" @click="loginGithub">github</a>
+    <!--<a href="javascript:void(0)" @click="loginGithub">github</a>-->
   </div>
 </template>
 <script>
@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     loginGithub () {
-
     },
     login () {
       BaseApi.login(this.user).then(data => {
