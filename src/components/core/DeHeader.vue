@@ -1,5 +1,4 @@
 <template>
-  <div id="app">
     <el-header class="header">
       <nav class="menu-bar">
         <router-link to="/" class="logo"><Label code="l_us"/></router-link>
@@ -20,15 +19,10 @@
         </span>
       </nav>
     </el-header>
-    <router-view/>
-    <!--<router-view/>-->
-    <Counter></Counter>
-  </div>
 </template>
 
 <script>
 import LoginUserRepository from './core/model/LoginUserRepository'
-import Label from './components/base/Label'
 
 import Vuex from 'vuex'
 import Vue from 'vue'
@@ -47,25 +41,9 @@ const store = new Vuex.Store({
 store.commit('increment')
 console.log(store.state.count)
 
-const Counter = {
-  template: `<div>{{ count }}</div>`,
-  computed: {
-    count () {
-      return this.$store.state.count
-    }
-  }
-}
-
 export default {
-  name: 'App',
+  name: 'DeHeader',
   store,
-  components: {
-    Counter, Label},
-  template: `
-  <div class="app">
-    <counter></counter>
-  </div>
-  `,
   data () {
     return {
       isLogin: LoginUserRepository.isSaved(),
@@ -89,14 +67,6 @@ export default {
   * {
     margin: 0;
     padding: 0;
-  }
-
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    height: 100%;
   }
 
   .header {
@@ -129,8 +99,5 @@ export default {
 
   .avatar {
     border-radius: 50%;
-  }
-
-  .login {
   }
 </style>

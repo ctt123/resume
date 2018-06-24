@@ -18,6 +18,9 @@ export default new Router({
       component: HelloWorld
     },
     {
+      path: '/test'
+    },
+    {
       path: '/msg/chat',
       name: 'Chat',
       component: Chat

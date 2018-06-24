@@ -40,11 +40,24 @@ export default {
 <style scoped lang="sass">
   @import '@/assets/css/index.sass'
   .login
+    background-color: #5cd6c9
+    height: 100%
+
+
+  .login-box
+    position: relative
+    top: 50%
+    left: 50%
     width: 300px
     border: 1px solid #eee
     padding: 40px
     text-align: center
-    margin: 200px auto auto
+    background-color: #fff
+    -webkit-transform: translate(-50%, -50%)
+    -moz-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    -o-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
     & > *
       margin-top: 20px
     .login-title
