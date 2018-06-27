@@ -11,8 +11,8 @@
 </template>
 <script>
 
-import Label from './Label'
-import BaseApi from '../../api/base/BaseApi'
+import Label from '../Label'
+import BaseApi from '../../../api/base/BaseApi'
 
 export default {
   name: 'Login',

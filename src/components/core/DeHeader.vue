@@ -1,49 +1,33 @@
 <template>
-    <el-header class="header">
-      <nav class="menu-bar">
-        <router-link to="/" class="logo"><Label code="l_us"/></router-link>
-        <router-link to="/"><Label code="l_index"/></router-link>
-        <router-link to="/note"><Label code="l_diary"/></router-link>
-        <router-link to="/msg/chat"><Label code="l_chat"/></router-link>
-        <router-link to="/store"><Label code="l_store"/></router-link>
-        <router-link to="/about"><Label code="l_about_us"/></router-link>
-        <a href="javascript: void(0)"><i class="el-icon-search"></i></a>
+  <el-header class="header">
+    <nav class="menu-bar">
+      <router-link to="/" class="logo">{{$t('menu.us')}}</router-link>
+      <router-link to="/">{{$t('menu.index')}}</router-link>
+      <router-link to="/note">{{$t('menu.diary')}}</router-link>
+      <router-link to="/msg/chat">{{$t('menu.chat')}}</router-link>
+      <router-link to="/store">{{$t('menu.store')}}</router-link>
+      <router-link to="/about">{{$t('menu.aboutUs')}}</router-link>
+      <a href="javascript: void(0)"><i class="el-icon-search"></i></a>
+      <div class="menu-right">
         <span v-if="isLogin">
           <img class="avatar" height="40" width="40" :src="loginUser.avatar"/>
           <span>{{loginUser.nickname}}</span>
-          <a href="javascript:void(0)" @click="logout"><Label code="l_logout"/></a>
+          <a href="javascript:void(0)" @click="logout">{{$t('menu.logout')}}</a>
         </span>
         <span v-else>
-          <router-link to="/login"><Label code="l_login"/></router-link>
-          <router-link to="/join"><Label code="l_join"/></router-link>
+          <router-link to="/signIn">{{$t('menu.signIn')}}</router-link>
+          <router-link to="/signUp">{{$t('menu.signUp')}}</router-link>
         </span>
-      </nav>
-    </el-header>
+      </div>
+    </nav>
+  </el-header>
 </template>
 
 <script>
-import LoginUserRepository from './core/model/LoginUserRepository'
-
-import Vuex from 'vuex'
-import Vue from 'vue'
-
-Vue.use(Vuex)
-const store = new Vuex.Store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
-})
-store.commit('increment')
-console.log(store.state.count)
+import LoginUserRepository from '../../core/model/LoginUserRepository'
 
 export default {
   name: 'DeHeader',
-  store,
   data () {
     return {
       isLogin: LoginUserRepository.isSaved(),
@@ -75,7 +59,7 @@ export default {
   }
 
   .menu-bar {
-    margin-left: 500px;
+    /*margin-left: 500px;*/
   }
 
   .menu-bar * {
@@ -99,5 +83,9 @@ export default {
 
   .avatar {
     border-radius: 50%;
+  }
+
+  .menu-right {
+    float:right;
   }
 </style>
