@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <page class="login">
     <div class="content">
       <el-input v-model="user.account" :placeholder="Labeler('p_login_name')">
         <i slot="prefix" class="el-input__icon el-icon-search"></i></el-input>
@@ -8,7 +8,7 @@
       <el-button type="success" @click="login"><Label code="l_login"/></el-button>
       <span @click="test">goHome</span>
     </div>
-  </div>
+  </page>
 </template>
 <script>
 import Label from '../Label'
@@ -43,7 +43,6 @@ export default {
   @import '@/assets/css/index.sass'
   .login
     background-color: #5cd6c9
-    height: 100vh
 
   .content
     /*position: relative*/

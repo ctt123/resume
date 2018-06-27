@@ -11,6 +11,7 @@ import BaseConfig from './core/config/BaseConfig'
 
 import Labeler from './core/Labeler'
 import i18n from './i18n'
+import './components/core'
 
 Vue.prototype.Labeler = Labeler
 Vue.config.productionTip = false
