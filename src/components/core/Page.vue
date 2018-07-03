@@ -1,6 +1,5 @@
 <template>
   <div class="page">
-    1111
     <slot></slot>
   </div>
 </template>
@@ -17,5 +16,5 @@ export default {
 </script>
 <style lang="sass">
   .page
-    min-height: 100vh
+    height: 100%
 </style>

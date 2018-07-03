@@ -1,6 +1,7 @@
 <template>
   <page class="login">
     <div class="content">
+      <h3 class="title">登录</h3>
       <el-input v-model="user.account" :placeholder="Labeler('p_login_name')">
         <i slot="prefix" class="el-input__icon el-icon-search"></i></el-input>
       <el-input v-model="user.password" placeholder="请输入密码">
@@ -43,21 +44,21 @@ export default {
   @import '@/assets/css/index.sass'
   .login
     background-color: #5cd6c9
+    height: 100%
 
   .content
-    /*position: relative*/
-    /*top: 50%*/
-    /*left: 50%*/
+    position: relative
+    top: 50%
+    left: 50%
     width: 300px
     border: 1px solid #eee
     padding: 40px
     text-align: center
     background-color: #fff
-
-    & > *
-      margin-top: 20px
-    .login-title
-      font-size: 27px
-      color: $b_green
+    -webkit-transform: translate(-50%, -50%)
+    -moz-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    -o-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
 
 </style>
