@@ -41,30 +41,17 @@ export default {
   .login
     background-color: #5cd6c9
     height: 100%
-
-  .content
-    position: relative
-    top: 50%
-    left: 50%
-    width: 300px
-    /*border: 1px solid #eee*/
-    padding: 40px
-    text-align: center
-    background-color: #fff
-    -webkit-transform: translate(-50%, -50%)
-    -moz-transform: translate(-50%, -50%)
-    -ms-transform: translate(-50%, -50%)
-    -o-transform: translate(-50%, -50%)
-    transform: translate(-50%, -50%)
-
-    border-radius: 8px
-    box-shadow: 1px 2px 15px rgba(0, 0, 0, .3)
-
-  .form-row
-    margin-top: 26px
-
-  .form-btn
-    background-color: #5cd6c9
-    color: #ffffff
-    border: none
+    .content
+      width: 300px
+      padding: 40px
+      text-align: center
+      background-color: #fff
+      @include box-center
+      @include box-corner-shadow
+      .form-row
+        margin-top: 26px
+      .form-btn
+        background-color: #5cd6c9
+        color: #ffffff
+        border: none
 </style>
