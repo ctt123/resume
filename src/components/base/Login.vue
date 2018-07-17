@@ -43,7 +43,6 @@ export default {
     background-color: #5cd6c9
     height: 100%
 
-
   .login-box
     position: relative
     top: 50%
