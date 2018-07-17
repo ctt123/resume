@@ -1,34 +1,38 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Chat from '@/components/grocery/msg/Chat'
-import Login from '@/components/base/Login'
-import LoginCallback from '@/components/base/LoginCallback'
-import Join from '@/components/base/Join'
-import Exam from '@/components/base/Exam'
+import Home from '../components/page/home/Home.vue'
+import Chat from '../components/page/grocery/msg/Chat'
+import SignIn from '../components/page/login/SignIn.vue'
+import SignUp from '../components/page/login/SignUp.vue'
+import Exam from '../components/page/Exam'
 import LoginUserRepository from '../core/model/LoginUserRepository'
-
+// import Test from '@/components/page/Home'
+import One from '../components/page/One'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/test'
-    },
-    {
-      path: '/msg/chat',
-      name: 'Chat',
-      component: Chat
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login,
+      name: 'home',
+      component: Home,
+      children: [{
+        path: '',
+        name: 'one',
+        component: One
+      }, {
+        path: '/msg/chat',
+        name: 'chat',
+        component: Chat
+      }, {
+        path: '/exam',
+        name: 'exam',
+        component: Exam
+      }]
+    }, {
+      path: '/signIn',
+      name: 'signIn',
+      component: SignIn,
       beforeEnter: (to, from, next) => {
         if (LoginUserRepository.isNotSaved()) {
           next()
@@ -36,21 +40,10 @@ export default new Router({
           next(from.path)
         }
       }
-    },
-    {
-      path: '/exam',
-      name: 'Exam',
-      component: Exam
-    },
-    {
-      path: '/join',
-      name: 'Join',
-      component: Join
-    },
-    {
-      path: '/login/callback',
-      name: 'LoginCallback',
-      component: LoginCallback
+    }, {
+      path: '/signUp',
+      name: 'signUp',
+      component: SignUp
     }
   ]
 })
