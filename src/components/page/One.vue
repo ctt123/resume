@@ -1,6 +1,6 @@
 <template>
   <div class="one">
-    <span @click="test">test</span>
+    <button @click="test" id="test">test</button>
   </div>
 </template>
 <script>
